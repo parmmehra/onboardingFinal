@@ -10,6 +10,7 @@
 namespace onboardingFinal.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     
     public partial class Product
@@ -19,9 +20,12 @@ namespace onboardingFinal.Models
         {
             this.Sales = new HashSet<Sale>();
         }
-    
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
+        [Required(ErrorMessage = "Product Name is required")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Product Price is required")]
         public string Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

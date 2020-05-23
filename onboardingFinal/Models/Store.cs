@@ -10,6 +10,7 @@
 namespace onboardingFinal.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     
     public partial class Store
@@ -19,9 +20,11 @@ namespace onboardingFinal.Models
         {
             this.Sales = new HashSet<Sale>();
         }
-    
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
+        [Required(ErrorMessage = "Store Name is required")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Store Address is required")]
         public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -10,14 +10,22 @@
 namespace onboardingFinal.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     
     public partial class Sale
     {
+
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Product Id is required")]
         public Nullable<int> ProductId { get; set; }
+        [Required(ErrorMessage = "Customer Id is required")]
         public Nullable<int> CustomerId { get; set; }
+        [Required(ErrorMessage = "Store Id is required")]
         public Nullable<int> StoreId { get; set; }
+        [Required(ErrorMessage = "Date Id is required")]
         public string DateSold { get; set; }
     
         public virtual Customer Customer { get; set; }
